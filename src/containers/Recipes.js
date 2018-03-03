@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import Title from '../components/Title'
 import RecipeItem from '../components/RecipeItem'
 
 class Recipes extends PureComponent {
-
   renderRecipes(recipe, index) {
     return <RecipeItem key={index} { ...recipe } />
   }
@@ -23,4 +24,8 @@ class Recipes extends PureComponent {
   }
 }
 
-export default Recipes
+const mapStateToProps = ({ recipes }) => ({
+  recipes
+})
+
+export default connect(mapStateToProps)(Recipes)
