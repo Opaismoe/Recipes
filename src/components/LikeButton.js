@@ -1,31 +1,49 @@
 import React, { PureComponent } from 'react'
-import 'assets/styles/LikeButton.css'
+import '../assets/styles/LikeButton.css'
 
 class LikeButton extends PureComponent {
+  constructor() {
+    super()
+
+    this.state = {
+      liked: false
+    }
+  }
 
   classNames() {
     const { liked } = this.state
     let classes = 'like'
 
     if (liked) {
-      classes += 'liked'
+      classes += ' liked'
     }
     return classes
   }
 
   toggleLike() {
-    console.log('clicked ToggleLike button')
+    this.setState({
+      liked: !this.state.liked
+    })
   }
 
   render() {
-    const liked = false
+    const { liked } = this.state
 
     return (
       <p className={ this.classNames() }>
         <button onClick={ this.toggleLike.bind(this) }>
-        { liked ? '❤️' : '♡' }
+          { liked ?
+            <span role="img" aria-label="liked">❤️</span> :
+            <span role="img" aria-label="not liked">♡</span>
+          }
+          <span className="copy">
+            { liked ?
+              <span role="img" aria-label="liked">❤️</span> :
+              <span role="img" aria-label="not liked">♡</span>
+            }
+          </span>
         </button>
-        <span className="likes">{ liked ? 'You like this' : null }</span>
+
       </p>
     )
   }
