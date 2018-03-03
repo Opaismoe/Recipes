@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import LikeButton from './LikeButton'
 
 class RecipeItem extends PureComponent {
   static propTypes = {
@@ -24,6 +25,7 @@ class RecipeItem extends PureComponent {
             { !vegan && vegetarian && <li><span role="img" aria-label="vegatarian">🥕</span></li> }
             { pescatarian && <li><span role="img" aria-label="pescatarian">🐟</span></li> }
           </ul>
+          <LikeButton />
         </div>
       </article>
     )
