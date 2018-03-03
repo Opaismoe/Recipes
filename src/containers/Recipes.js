@@ -16,7 +16,7 @@ class Recipes extends PureComponent {
         </header>
 
         <main>
-          { this.props.recipes.map(this.renderRecipe) }
+          { this.props.recipes.map(this.renderRecipes) }
         </main>
       </div>
     )
